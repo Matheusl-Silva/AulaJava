@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Usuario {
 
   private String nomeUsuario;
@@ -28,15 +30,28 @@ public class Usuario {
     this.emailUsuario = emailUsuario;
   }
 
+  @Override
+  public String toString() {
+    return "Usuario nomeUsuario=" + nomeUsuario + ", senhaUsuario=" + senhaUsuario + ", emailUsuario=" + emailUsuario;
+  }
+
   public Usuario(String nomeUsuario, String senhaUsuario, String emailUsuario) {
     this.nomeUsuario = nomeUsuario;
     this.senhaUsuario = senhaUsuario;
     this.emailUsuario = emailUsuario;
   }
 
-  @Override
-  public String toString() {
-    return "Usuario [nomeUsuario=" + nomeUsuario + ", senhaUsuario=" + senhaUsuario + ", emailUsuario=" + emailUsuario
-        + "]";
+  public static Usuario cadastrarUsuario() {
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Digite o nome do usuário: ");
+    String nomeUsuario = scan.nextLine();
+    System.out.println("Digite a senha do usuário: ");
+    String senhaUsuario = scan.nextLine();
+    System.out.println("Digite o email do usuário: ");
+    String emailUsuario = scan.nextLine();
+
+    Usuario u1 = new Usuario(nomeUsuario, senhaUsuario, emailUsuario);
+    System.out.println("Usuário cadastrado com sucesso!");
+    return u1;
   }
 }

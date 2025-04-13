@@ -1,39 +1,40 @@
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Paciente {
 
-  private String nome;
-  private int registro;
-  private String periodo;
+  private String nomePaciente;
+  private int registroPaciente;
+  private String periodoPaciente;
   private Calendar dataNascimento;
-  private String telefone;
-  private String email;
-  private String nomeMae;
+  private String telefonePaciente;
+  private String emailPaciente;
+  private String nomeMaePaciente;
   private String medicamento;
   private String patologia;
 
-  public String getNome() {
-    return nome;
+  public String getNomePaciente() {
+    return nomePaciente;
   }
 
-  public void setNome(String nome) {
-    this.nome = nome;
+  public void setNomePaciente(String nomePaciente) {
+    this.nomePaciente = nomePaciente;
   }
 
-  public int getRegistro() {
-    return registro;
+  public int getRegistroPaciente() {
+    return registroPaciente;
   }
 
-  public void setRegistro(int registro) {
-    this.registro = registro;
+  public void setRegistroPaciente(int registroPaciente) {
+    this.registroPaciente = registroPaciente;
   }
 
-  public String getPeriodo() {
-    return periodo;
+  public String getPeriodoPaciente() {
+    return periodoPaciente;
   }
 
-  public void setPeriodo(String periodo) {
-    this.periodo = periodo;
+  public void setPeriodoPaciente(String periodoPaciente) {
+    this.periodoPaciente = periodoPaciente;
   }
 
   public Calendar getDataNascimento() {
@@ -44,28 +45,28 @@ public class Paciente {
     this.dataNascimento = dataNascimento;
   }
 
-  public String getTelefone() {
-    return telefone;
+  public String getTelefonePaciente() {
+    return telefonePaciente;
   }
 
-  public void setTelefone(String telefone) {
-    this.telefone = telefone;
+  public void setTelefonePaciente(String telefonePaciente) {
+    this.telefonePaciente = telefonePaciente;
   }
 
-  public String getEmail() {
-    return email;
+  public String getEmailPaciente() {
+    return emailPaciente;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setEmailPaciente(String emailPaciente) {
+    this.emailPaciente = emailPaciente;
   }
 
-  public String getNomeMae() {
-    return nomeMae;
+  public String getNomeMaePaciente() {
+    return nomeMaePaciente;
   }
 
-  public void setNomeMae(String nomeMae) {
-    this.nomeMae = nomeMae;
+  public void setNomeMaePaciente(String nomeMaePaciente) {
+    this.nomeMaePaciente = nomeMaePaciente;
   }
 
   public String getMedicamento() {
@@ -84,24 +85,52 @@ public class Paciente {
     this.patologia = patologia;
   }
 
-  public Paciente(String nome, int registro, String periodo, Calendar dataNascimento, String telefone, String email,
-      String nomeMae, String medicamento, String patologia) {
-    this.nome = nome;
-    this.registro = registro;
-    this.periodo = periodo;
+  public Paciente(String nomePaciente, int registroPaciente, String periodoPaciente, Calendar dataNascimento,
+      String telefonePaciente, String emailPaciente, String nomeMaePaciente, String medicamento, String patologia) {
+    this.nomePaciente = nomePaciente;
+    this.registroPaciente = registroPaciente;
+    this.periodoPaciente = periodoPaciente;
     this.dataNascimento = dataNascimento;
-    this.telefone = telefone;
-    this.email = email;
-    this.nomeMae = nomeMae;
+    this.telefonePaciente = telefonePaciente;
+    this.emailPaciente = emailPaciente;
+    this.nomeMaePaciente = nomeMaePaciente;
     this.medicamento = medicamento;
     this.patologia = patologia;
   }
 
   @Override
   public String toString() {
-    return "Paciente [nome=" + nome + ", registro=" + registro + ", periodo=" + periodo + ", dataNascimento="
-        + dataNascimento.getTime() + ", telefone=" + telefone + ", email=" + email + ", nomeMae=" + nomeMae
-        + ", medicamento=" + medicamento + ", patologia=" + patologia + "]";
+    return "Paciente [nomePaciente=" + nomePaciente + ", registroPaciente=" + registroPaciente + ", periodoPaciente="
+        + periodoPaciente + ", dataNascimento=" + dataNascimento + ", telefonePaciente=" + telefonePaciente
+        + ", emailPaciente=" + emailPaciente + ", nomeMaePaciente=" + nomeMaePaciente + ", medicamento=" + medicamento
+        + ", patologia=" + patologia + "]";
+  }
+
+  public static Paciente cadastrPaciente() {
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Digite o nome do paciente: ");
+    String nomePaciente = scan.nextLine();
+    System.out.println("Digite o registro do paciente: ");
+    int registroPaciente = scan.nextInt();
+    System.out.println("Digite o periodo do paciente: ");
+    String periodoPaciente = scan.nextLine();
+    System.out.println("Digite a data de nascimento do paciente: ");
+    Calendar dataNascimento = Calendar.getInstance();
+    System.out.println("Digite o telefone do paciente: ");
+    String telefonePaciente = scan.nextLine();
+    System.out.println("Digite o email do paciente: ");
+    String emailPaciente = scan.nextLine();
+    System.out.println("Digite o nome da mãe do paciente: ");
+    String nomeMaePaciente = scan.nextLine();
+    System.out.println("Digite o medicamento do paciente: ");
+    String medicamento = scan.nextLine();
+    System.out.println("Digite a patologia do paciente: ");
+    String patologia = scan.nextLine();
+
+    Paciente p1 = new Paciente(nomePaciente, registroPaciente, periodoPaciente, dataNascimento, telefonePaciente,
+        emailPaciente, nomeMaePaciente, medicamento, patologia);
+    System.out.println("Paciente cadastrado com sucesso!");
+    return p1;
   }
 
 }
